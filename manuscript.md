@@ -67,11 +67,11 @@ header-includes: '<!--
 
   <link rel="alternate" type="application/pdf" href="https://dhimmel.github.io/rootstock-actions-deploy/manuscript.pdf" />
 
-  <link rel="alternate" type="text/html" href="https://dhimmel.github.io/rootstock-actions-deploy/v/c29e40a702e4a7e37107e5f9b13a62a0343e816f/" />
+  <link rel="alternate" type="text/html" href="https://dhimmel.github.io/rootstock-actions-deploy/v/4785470767783c0412f8a49c3bdecf21b48a2781/" />
 
-  <meta name="manubot_html_url_versioned" content="https://dhimmel.github.io/rootstock-actions-deploy/v/c29e40a702e4a7e37107e5f9b13a62a0343e816f/" />
+  <meta name="manubot_html_url_versioned" content="https://dhimmel.github.io/rootstock-actions-deploy/v/4785470767783c0412f8a49c3bdecf21b48a2781/" />
 
-  <meta name="manubot_pdf_url_versioned" content="https://dhimmel.github.io/rootstock-actions-deploy/v/c29e40a702e4a7e37107e5f9b13a62a0343e816f/manuscript.pdf" />
+  <meta name="manubot_pdf_url_versioned" content="https://dhimmel.github.io/rootstock-actions-deploy/v/4785470767783c0412f8a49c3bdecf21b48a2781/manuscript.pdf" />
 
   <meta property="og:type" content="article" />
 
@@ -103,9 +103,9 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://dhimmel.github.io/rootstock-actions-deploy/v/c29e40a702e4a7e37107e5f9b13a62a0343e816f/))
+([permalink](https://dhimmel.github.io/rootstock-actions-deploy/v/4785470767783c0412f8a49c3bdecf21b48a2781/))
 was automatically generated
-from [dhimmel/rootstock-actions-deploy@c29e40a](https://github.com/dhimmel/rootstock-actions-deploy/tree/c29e40a702e4a7e37107e5f9b13a62a0343e816f)
+from [dhimmel/rootstock-actions-deploy@4785470](https://github.com/dhimmel/rootstock-actions-deploy/tree/4785470767783c0412f8a49c3bdecf21b48a2781)
 on February 17, 2020.
 </em></small>
 
