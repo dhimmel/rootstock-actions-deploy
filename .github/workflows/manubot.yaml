@@ -64,7 +64,6 @@ jobs:
           # user_name: todo
           # user_email: todo@peaceiris.com
       - name: Configure Webpage
-        # Configure versioned webpage and timestamp
         shell: bash --login {0}
         run: |
           manubot webpage \
@@ -72,10 +71,6 @@ jobs:
             --no-ots-cache \
             --checkout=gh-pages \
             --version="${{ github.sha }}"
-      # - name: Webpage Dereference Symlinks
-      #   # workaround https://github.com/peaceiris/actions-gh-pages/issues/103
-      #   run: |
-      #     cp --recursive --dereference webpage webpage_dereferenced
       - name: Deploy Webpage
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
