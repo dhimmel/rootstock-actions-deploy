@@ -62,13 +62,22 @@ jobs:
           # commit_message: todo
           # user_name: todo
           # user_email: todo@peaceiris.com
-      - name: Webpage Dereference Symlinks
-        # workaround https://github.com/peaceiris/actions-gh-pages/issues/103
+      - name: Configure Webpage
+        # Configure versioned webpage and timestamp
+        shell: bash --login {0}
         run: |
-          cp --recursive --dereference webpage webpage_dereferenced
+          manubot webpage \
+            --timestamp \
+            --no-ots-cache \
+            --checkout=gh-pages \
+            --version="${{ github.sha }}"
+      # - name: Webpage Dereference Symlinks
+      #   # workaround https://github.com/peaceiris/actions-gh-pages/issues/103
+      #   run: |
+      #     cp --recursive --dereference webpage webpage_dereferenced
       - name: Deploy Webpage
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./webpage_dereferenced
+          publish_dir: ./webpage
           publish_branch: gh-pages
