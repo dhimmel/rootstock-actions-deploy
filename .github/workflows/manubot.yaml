@@ -39,17 +39,32 @@ jobs:
         with:
           name: manuscript-${{ github.run_id }}-${{ env.TRIGGERING_SHA_7 }}
           path: output
-      - name: Deploy Manuscript
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        env:
-          MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}
-          CI_BUILD_WEB_URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}/checks
-          CI_JOB_WEB_URL: https://github.com/${{ github.repository }}/runs/${{ github.run_id }}
-        shell: bash --login {0}        
-        run: |
-          if [ "$MANUBOT_SSH_PRIVATE_KEY" != "" ]; then
-            bash ci/deploy.sh
-          else
-            echo >&2 "Skipping deployment because the MANUBOT_SSH_PRIVATE_KEY secret is not set.
-            Instructions at https://github.com/manubot/rootstock/blob/master/SETUP.md#deploy-key"
-          fi
+      # - name: Deploy Manuscript
+      #   if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      #   env:
+      #     MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}
+      #     CI_BUILD_WEB_URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}/checks
+      #     CI_JOB_WEB_URL: https://github.com/${{ github.repository }}/runs/${{ github.run_id }}
+      #   shell: bash --login {0}        
+      #   run: |
+      #     if [ "$MANUBOT_SSH_PRIVATE_KEY" != "" ]; then
+      #       bash ci/deploy.sh
+      #     else
+      #       echo >&2 "Skipping deployment because the MANUBOT_SSH_PRIVATE_KEY secret is not set.
+      #       Instructions at https://github.com/manubot/rootstock/blob/master/SETUP.md#deploy-key"
+      #     fi
+      - name: Deploy Output
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: output
+          # commit_message: todo
+          # user_name: todo
+          # user_email: todo@peaceiris.com
+      - name: Deploy Webpage
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./webpage
+          publish_branch: gh-pages
