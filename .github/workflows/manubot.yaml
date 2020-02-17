@@ -54,6 +54,7 @@ jobs:
       #       Instructions at https://github.com/manubot/rootstock/blob/master/SETUP.md#deploy-key"
       #     fi
       - name: Deploy Output
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,6 +77,7 @@ jobs:
       #   run: |
       #     cp --recursive --dereference webpage webpage_dereferenced
       - name: Deploy Webpage
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
